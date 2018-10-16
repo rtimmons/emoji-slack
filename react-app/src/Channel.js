@@ -9,9 +9,9 @@ const message = {
 class Channel extends Component {
   render() {
     return (
-      <div>
+      <div class="Channel">
         <h3>{this.props.name}</h3>
-        <Message name={message.text} />
+        <div class="Items">{this.props.messages}</div>
       </div>
     );
   }
