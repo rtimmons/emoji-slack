@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Channel from './Channel';
 import './App.css';
 
 import ChatService from './ChatService';
+
+const channel = {
+  name: '🐶'
+};
 
 class App extends Component {
   constructor() {
@@ -10,32 +14,19 @@ class App extends Component {
     this.chat = new ChatService('emoji-slack-cstkn', 'emojiSlack');
   }
 
-  logMessages() {
+  logMessages = () => {
     this.chat.login().then(() => {
       this.chat.messages().then(messages => {
         console.log('Got messsages', messages);
       });
     });
-  }
+  };
 
   render() {
-    var self = this;
     return (
       <div className="App">
-        <header className="App-header" onClick={self.logMessages.bind(self)}>
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h3>HELLO</h3>
+        <Channel name={channel.name} chatService={this.chat} />
       </div>
     );
   }
