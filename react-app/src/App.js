@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import Channel from './Channel';
 import './App.css';
-
 import ChatService from './ChatService';
 
 const channel = {
   name: '🐶'
 };
+
+const translate = require('moji-translate');
+
+console.log(translate.getAllEmojiForWord('👀'));
+console.log(
+  translate.translate('the house is on fire and the cat is eating the cake')
+);
 
 class App extends Component {
   constructor() {
