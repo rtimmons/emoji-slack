@@ -16,26 +16,32 @@ class ChatService {
     return this.client.auth.loginWithCredential(new AnonymousCredential());
   }
 
-  addMessage(message) {
-    return this.login().then(() => {
-      console.log('login done, inserting ', message);
+  addMessageToChannel(message, channel_name) {
+    return this.login()
+      .then(() => {
+        console.log('login done, inserting ', message);
 
-      return this.db
-        .collection('messages')
-        .insertOne(message)
-        .then(e => {
-          console.log(e);
-        })
-        .catch(err => console.log(err));
-    });
+        return this.db
+          .collection('messages')
+          .insertOne(message)
+          .then(a => {
+            console.log(a);
+
+            // return this.db
+            //   .collection('channels')
+            //   .updateOne({name: channel_name}, {last_updated: new Date()}, {upsert: true})
+            //   .then(e => {
+            //     console.log(e);
+            //   }).catch(err => console.log(err));
+          });
+      })
+      .catch(err => console.log(err));
   }
 
   watch(callback) {
-    // let q = ['1', '2'];
-    let q = {};
     return this.db
       .collection('messages')
-      .watch(['*'])
+      .watch(['1'])
       .then(stream => {
         console.log('Got stream ', stream);
         stream.onNext(e => {

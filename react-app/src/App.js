@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Channel from './Channel';
 import './App.css';
 
-// import Authenticator from './Authentiocator';
 import ChatService from './ChatService';
 
 const channel = {
@@ -19,7 +18,6 @@ class App extends Component {
     return (
       <div className="App">
         <Channel name={channel.name} chatService={this.chatService} />
-        {/* <Authenticator /> */}
       </div>
     );
   }

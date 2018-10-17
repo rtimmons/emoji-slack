@@ -36,14 +36,14 @@ class Channel extends Component {
   };
 
   addMessage = e => {
-    this.onNewMessages([
-      {
-        _id: 'DW0287A6M493MK5AUT1Q',
-        channel_id: '🐶',
-        text: '🎩💰',
-        user_id: '🤮'
-      }
-    ]);
+    const msg1 = {
+      _id: 'DW0287A6M493MK5AUT1Q',
+      channel_id: '🐶',
+      text: '🎩💰',
+      user_id: '🤮'
+    };
+    this.onNewMessages([msg1]);
+    this.chatService.addMessageToChannel(msg1, '🐶');
   };
 
   // {/*

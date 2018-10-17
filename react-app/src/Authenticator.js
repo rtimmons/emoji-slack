@@ -7,7 +7,7 @@ const {
 class Authenticator {
   constructor(token, dbName) {
     this.client = Stitch.initializeDefaultAppClient(token);
-    db = client
+    this.client
       .getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas')
       .db(dbName);
     this.emailPassClient = this.client.auth.getProviderClient(
@@ -72,3 +72,5 @@ class Authenticator {
       .catch(err => console.error(`login failed with error: ${err}`));
   }
 }
+
+export default Authenticator;
