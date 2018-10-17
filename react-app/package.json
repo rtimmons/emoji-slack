@@ -5,6 +5,7 @@
   "dependencies": {
     "husky": "^1.1.2",
     "lint-staged": "^7.3.0",
+    "moji-translate": "^1.0.8",
     "mongodb-stitch-browser-sdk": "^4.0.15-0",
     "prettier": "^1.14.3",
     "react": "^16.5.2",
