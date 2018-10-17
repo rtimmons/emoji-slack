@@ -1,0 +1,17 @@
+div.Channel {
+  border: 1px solid black;
+  margin: 0.5em;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+div.Channel h3 {
+  float: left;
+  vertical-align: middle;
+  margin: auto 0.5em;
+}
+
+div.Channel div.Items {
+  display: flex;
+  flex-flow: row nowrap;
+}

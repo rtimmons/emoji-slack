@@ -1,0 +1,10 @@
+div.Message {
+  padding: 0.25em;
+  margin: 0.25em;
+  background-color: #eee;
+}
+
+div.Message div.User {
+  text-align: left;
+  font-size: 0.75em;
+}

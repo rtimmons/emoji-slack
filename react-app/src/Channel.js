@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import Message from './Message';
-import './App.css';
-
-const message = {
-  text: '😱'
-};
+import './Channel.css';
 
 class Channel extends Component {
   render() {
     return (
-      <div class="Channel">
+      <div className="Channel">
         <h3>{this.props.name}</h3>
-        <div class="Items">{this.props.messages}</div>
+        <div className="Items">
+          <Message user="😹" text="🥃❓" />
+          <Message user="🧞‍" text="👍➕🍷‼️" />
+        </div>
       </div>
     );
   }

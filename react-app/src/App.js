@@ -7,13 +7,6 @@ const channel = {
   name: '🐶'
 };
 
-const translate = require('moji-translate');
-
-console.log(translate.getAllEmojiForWord('👀'));
-console.log(
-  translate.translate('the house is on fire and the cat is eating the cake')
-);
-
 class App extends Component {
   constructor() {
     super();
@@ -31,7 +24,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h3>HELLO</h3>
         <Channel name={channel.name} chatService={this.chat} />
       </div>
     );
