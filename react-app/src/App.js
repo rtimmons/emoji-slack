@@ -13,14 +13,6 @@ class App extends Component {
     this.chat = new ChatService('emoji-slack-cstkn', 'emojiSlack');
   }
 
-  logMessages = () => {
-    this.chat.login().then(() => {
-      this.chat.messages().then(messages => {
-        console.log('Got messsages', messages);
-      });
-    });
-  };
-
   render() {
     return (
       <div className="App">

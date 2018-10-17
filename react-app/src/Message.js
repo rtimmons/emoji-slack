@@ -3,10 +3,12 @@ import './Message.css';
 
 class Message extends Component {
   render() {
+    const { user, text } = this.props;
+
     return (
       <div className="Message">
-        <div className="User">{this.props.user}</div>
-        <div className="Text">{this.props.text}</div>
+        <div className="User">{user}</div>
+        <div className="Text">{text}</div>
       </div>
     );
   }
