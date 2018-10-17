@@ -7,19 +7,23 @@ class Channel extends Component {
     messages: []
   };
 
-  constructMessage(doc) {
-    return <Message {...doc} />;
+  /**
+   * @param {Array} newMessages
+   */
+  onNewMessages(messages) {
+    let ndocs = messages.map(msg => <Message {...msg} key={msg._id} />);
+
+    let newMessages = this.state.messages || [];
+    newMessages.push(ndocs);
+
+    this.setState({ messages: newMessages });
   }
 
   constructor(props) {
     super(props);
     this.chatService = props.chatService;
     this.chatService.watch(docs => {
-      console.log('got docs', docs);
-      let newMessages = this.state.messages || [];
-      let ndocs = docs.map(d => this.constructMessage(d));
-      newMessages.push(ndocs);
-      this.setState('messages', newMessages);
+      this.onNewMessages(docs);
     });
   }
 
@@ -32,22 +36,27 @@ class Channel extends Component {
   };
 
   addMessage = e => {
-    this.chatService.addMessage({
-      channel_id: '🐶',
-      text: '🎩💰',
-      user_id: '🤮'
-    });
+    this.onNewMessages([
+      {
+        _id: 'DW0287A6M493MK5AUT1Q',
+        channel_id: '🐶',
+        text: '🎩💰',
+        user_id: '🤮'
+      }
+    ]);
   };
 
   render() {
     const { name, chatService } = this.props;
-
     return (
       <div className="Channel" onClick={this.addMessage}>
         <h3>{name}</h3>
         <div className="Items">
+          {this.state.messages}
+          {/*
           <Message chatService={chatService} user="😹" text="🥃❓" />
           <Message chatService={chatService} user="🧞‍" text="👍➕🍷‼️" />
+          */}
         </div>
       </div>
     );

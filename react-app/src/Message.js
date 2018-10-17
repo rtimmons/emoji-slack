@@ -6,7 +6,7 @@ class Message extends Component {
     const { user, text } = this.props;
 
     return (
-      <div className="Message">
+      <div className="Message" key={this.props._id}>
         <div className="User">{user}</div>
         <div className="Text">{text}</div>
       </div>
