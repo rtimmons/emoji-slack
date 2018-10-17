@@ -11,7 +11,7 @@ class Channel extends Component {
    * @param {Array} newMessages
    */
   onNewMessages(messages) {
-    let ndocs = messages.map(msg => <Message {...msg} key={msg._id} />);
+    let ndocs = messages.map(msg => <Message {...msg} />);
 
     let newMessages = this.state.messages || [];
     newMessages.push(ndocs);
@@ -46,18 +46,23 @@ class Channel extends Component {
     ]);
   };
 
+  // {/*
+  // <Message chatService={chatService} user="😹" text="🥃❓" />
+  // <Message chatService={chatService} user="🧞‍" text="👍➕🍷‼️" />
+  // */}
+
   render() {
     const { name, chatService } = this.props;
+
+    let items = (
+      <div className="Items" key="Items">
+        {this.state.messages}
+      </div>
+    );
     return (
       <div className="Channel" onClick={this.addMessage}>
         <h3>{name}</h3>
-        <div className="Items">
-          {this.state.messages}
-          {/*
-          <Message chatService={chatService} user="😹" text="🥃❓" />
-          <Message chatService={chatService} user="🧞‍" text="👍➕🍷‼️" />
-          */}
-        </div>
+        {items}
       </div>
     );
   }
