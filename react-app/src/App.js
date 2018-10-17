@@ -10,13 +10,13 @@ const channel = {
 class App extends Component {
   constructor() {
     super();
-    this.chat = new ChatService('emoji-slack-cstkn', 'emojiSlack');
+    this.chatService = new ChatService('emoji-slack-cstkn', 'emojiSlack');
   }
 
   render() {
     return (
       <div className="App">
-        <Channel name={channel.name} chatService={this.chat} />
+        <Channel name={channel.name} chatService={this.chatService} />
       </div>
     );
   }
